@@ -9,13 +9,13 @@ process.stdin.on('data',(data)=>{
 });*/
 
 
-var i=0;
+var i=0,
     me={};
 
 console.log(msg[i++]+':');
 
 process.stdin.on('data',(data)=>{
-  var cmd="me"+msg[i-1]+'="'+data.slice(0,data.length-1).toString('utf8')+'"';
+  var cmd='me.'+msg[i-1]+'="'+data.slice(0,data.length-1).toString('utf8')+'"';
   eval(cmd);
   console.log(msg[i++]+':');
 });
