@@ -15,7 +15,7 @@ function loop(){
 
 //通过时间控制
 global.setTimeout(()=>{
-  global.clearInterval(timeID);
+  global.clearInterval(timerID);
   console.log('end');
 },3000)
 
