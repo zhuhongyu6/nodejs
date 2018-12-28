@@ -1,5 +1,5 @@
 #!/usr/bin/node
-
+console.log('process id:',process.pid);
 process.stdin.resume();
 
 process.on('SIGINT',()=>{
@@ -8,5 +8,6 @@ process.on('SIGINT',()=>{
 });
 
 process.on('SIGTSTP',()=>{
-  CONSOLE.LOG('you have pressed Ctrl+D');
+  console.log('you have pressed Ctrl+Z');
+  process.exit();
 });
