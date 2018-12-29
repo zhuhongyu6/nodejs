@@ -14,6 +14,7 @@ var fileName=process.argv[2];
 var buf=fs.readFileSync(fileName);
 console.log(fileName);
 var dataURI='data:image/png;base64,'+buf.toString('base64');
+console.log(dataURI);
 
 var html='<!DOCTYPE html><html><head><title>hello</title></head><body><img src="'+dataURI+'"></body></html>'
 
