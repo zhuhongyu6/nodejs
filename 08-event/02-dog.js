@@ -1,27 +1,29 @@
 #!/usr/bin/node
 
-const EventEmitter=require('events').EventEmitter;
-/*名字大写：构造函数*/
+var EventEmitter=require('events').EventEmitter;
+
 function Dog(name,energy){
-  var _name=name;
-  var _energy=energy;
+  var _name,_energy;
+  var that=this;
 
-  var self=this;
   EventEmitter.call(this);
-
-  var timer=global.setInterval(()=>{
+  _name=name;
+  _energy=energy;
+  
+  var timer=setInterval(()=>{
     if(energy>0){
-      self.emit('bark');
+      that.emit('bark');
       _energy--;
-    }else{
+    }
+    if(_energy<0){
       global.clearInterval(timer);
     }
-  },500);
+  },1000);
 
   this.name=()=>_name;
   this.energy=()=>_energy;
 }
 
-Dog._proto_=EventEmitter.prototype;
+Dog.prototype=EventEmitter.prototype;
 
 module.exports=Dog;
