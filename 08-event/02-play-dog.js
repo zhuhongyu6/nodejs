@@ -10,6 +10,6 @@ taidi.on('bark',onBark);
 zangao.on('bark',onBark);
 
 function onBark(){
-  console.log('%s is Barked! energy:%d',this.name,this.energy);
+  console.log('%s is Barked! energy:%d',this.name(),this.energy());
 }
 
